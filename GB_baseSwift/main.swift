@@ -26,10 +26,6 @@ struct LiteCar {
             print ("Engine will be \(newValue) in 1 second")
         }
     }
-//  init (carEngine: EngineStatus = .drownedOut) {
-//      self.carEngine = carEngine
-//  }
-// Если вставить эту часть, то он считает, что все остальные параметры не нужны и пишет ошибку в 57 строчке "Cannot infer contextual base in reference to member 'Closed'"
     var carWindows: WindowsStatus {
         willSet {
             print ("Windows will be \(newValue) in 4 seconds")
@@ -47,17 +43,36 @@ struct LiteCar {
             }
         }
     }
+    init (carModel: String, yearOfIssue: Int, trunkVolume: Int, carEngine: EngineStatus, carWindows: WindowsStatus, filledTrunkVolume: Int) {
+        self.carModel = carModel
+        self.yearOfIssue = yearOfIssue
+        self.trunkVolume = trunkVolume
+        self.carEngine = carEngine
+        self.carWindows = carWindows
+        self.filledTrunkVolume = filledTrunkVolume
+    }
 }
 
 struct Truck {
     let carModel: String
     let yearOfIssue: Int
     let trunkVolume: Int
-    var carEngine: EngineStatus {willSet {print ("Engine will be \(newValue) in 1 second")}}
-    var carWindows: WindowsStatus {willSet {print ("Windows will be \(newValue) in 4 seconds")}}
-// Какое из написаний willSet выглядит более понятно и структурированно? То, которое в структуре с легковой машиной или с грузовиком?
+    var carEngine: EngineStatus {
+        willSet {
+            print ("Engine will be \(newValue) in 1 second")
+        }
+    }
+    var carWindows: WindowsStatus {
+        willSet {
+            print ("Windows will be \(newValue) in 4 seconds")
+
+        }
+    }
     var filledTrunkVolume: Int {
-        willSet {print ("Now \(newValue) liters of luggage compartment is full")}
+        willSet {
+            print ("Now \(newValue) liters of luggage compartment is full")
+
+        }
         didSet {
             if filledTrunkVolume > oldValue {
                 print ("You put another \(filledTrunkVolume - oldValue) liters in the trunk of your truck")
