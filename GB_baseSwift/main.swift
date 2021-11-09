@@ -9,15 +9,10 @@ import Foundation
 
 print ("First task:")
 
-let numberForEven: Int = 13
+let numberForEven: Int = 14
 
-func isNumberEven (_ number: Int) -> Bool
-{
-    var boolIsNumberEven: Bool = false
-    if number % 2 == 0 {
-        boolIsNumberEven = true
-    }
-    return boolIsNumberEven
+func isNumberEven (_ number: Int) -> Bool {
+    return (number % 2 == 0) ? true : false
 }
 
 if isNumberEven(numberForEven) {
@@ -29,15 +24,11 @@ if isNumberEven(numberForEven) {
 //----------------------------------
 print ("\nSecond task:")
 
-let numberForDevideToThree: Int = 13
+let numberForDevideToThree: Int = 15
 
 func isNumberDevideToThree (_ number: Int) -> Bool
 {
-    var boolIsNumberDevideToThree: Bool = false
-    if number % 3 == 0 {
-        boolIsNumberDevideToThree = true
-    }
-    return boolIsNumberDevideToThree
+    return number % 3 == 0 ? true : false
 }
 
 if isNumberDevideToThree(numberForDevideToThree) {
